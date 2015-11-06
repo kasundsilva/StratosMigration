@@ -1,0 +1,53 @@
+Directory Structure
+-------------------
+├── lib
+│   ├── commons-codec-1.2.jar
+│   ├── commons-httpclient-3.1.0.wso2v1.jar
+│   ├── json-2.0.0.wso2v1.jar
+│   ├── mysql-connector-java-5.1.27-bin.jar
+│   └── org.wso2.carbon.logging-4.2.0.jar
+├── README
+├── resources
+│   ├── migration.properties
+│   └── wso2carbon.jks
+├── src
+│   └── org
+│       └── wso2
+│           └── carbon
+│               └── appfactory
+│                   ├── Application.java
+│                   ├── Main.java
+│                   ├── PropertyLoader.java
+│                   ├── ServerResponse.java
+│                   ├── StratosHttpClient.java
+│                   └── Tenant.java
+└── StratosMigration.MF
+
+How to create the Executable jar
+===============================
+
+Update the migration.properties accordingly.
+
+Commands:
+
+1. cd into StratosMigration/
+2. javac -cp .:lib/* src/org/wso2/carbon/appfactory/*.java
+3. cd into src/
+4. jar cmf ../StratosMigration.MF ../StratosMigration.jar org/wso2/carbon/appfactory/*.class ../resources/*
+5. cd ..
+6. To run the jar file => $java -jar StratosMigration.jar
+
+
+
+How to run the jar
+==================
+Copy the following artifacts as shown below to a location:
+├── StratosMigration.jar
+├── lib
+│   ├── commons-codec-1.2.jar
+│   ├── commons-httpclient-3.1.0.wso2v1.jar
+│   ├── json-2.0.0.wso2v1.jar
+│   ├── mysql-connector-java-5.1.27-bin.jar
+│   └── org.wso2.carbon.logging-4.2.0.jar
+The execute the below command.
+$java -jar StratosMigration.jar 
